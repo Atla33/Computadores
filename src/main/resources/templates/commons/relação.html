@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" th:fragment="lista">
+    <div class="container pt-2">
+        <div class="row">
+            <div class="col-6" th:each="f : ${listcomputador}" th:object="${c}">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md">
+                            <img th:src="*{imagem}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 text-center">
+                            <div class="card-body">
+                                <h5 th:text="*{modelo}" class="card-title"></h5>
+                                <p th:text=" 'Direção: ' + *{marca}" class="card-text"></p>
+                                <p th:text="'Lançamento: ' + *{preco}" class="card-text"></p>
+                                <p th:text="'Sinopse: ' + *{descricao}" class="card-text"></p>
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABvElEQVRIidWUPUwUURSFvzO72mKFQRpDKNhZV9wfQkVMqACRjmVNTCxMtLWywdpEO2NpZ0MihQWF0QJKY5SZgIFdKhoStdDExsTAzKUQZMCZnVldE73JFHPfmfO9Obnvwb9U1qyWbLN2oZNvnA4RDQgbfw9g1DGumaGuA2yjOgoMIgbYrI10HYDsKBpljykTwAwHmI20Gmazua4B2KpeBvojnT5a22PdAwQWE0m2mARgzcotjMfA6UzA9NoDuyfXf/Bz3KxVrhFqETj/R9amHZywroL/GiIRach/R04jGC9/35wVwnzt0Bz49cCYIZrlu6D7ZB9jAz2kMDAvLQbRhcQTaRuVcRwWMHpTvL9gXFfRfxG3mrhDFb1lTEvtzQGc50nmbQE/7hubTAfYVLu7KTnjrXIVOJcOoI9WpdI5wHQlpvvs4DlRsdo0ANORt6+I23K9ObneHKY68PlIGyYCYrOztYu9nMp/ONjAK3b3bmp4feeY5v3oWZzdJ4irQIjl+lV8+zHbH+Rz08B30B0K3sRJcwCV3nxS0ZsBuwF8gyB2IOIBUg+BSnJXH0lYrOZQ6vpPCXQJcaad7v+tfWAchuxt+1nYAAAAAElFTkSuQmCC">
+                                <a th:href="@{'/deletar/'+ *{id}}" class="btn btn-danger">Deletar</a>
+                                <a th:href="@{'/editar/'+ *{id}}" class="btn btn-primary">Editar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
